@@ -2,6 +2,7 @@ package edu.kvcc.cis298.cis298inclass1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
+    private static final String TAG = "QuizActivity";
+
+
+    //Variable to hold the widget controls
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
@@ -25,7 +30,6 @@ public class QuizActivity extends AppCompatActivity {
     //than the string itself.
     private Question[] mQuestionBank = new Question[]{
         new Question(R.string.question_oceans, true),
-        new Question(R.string.question_oceans, true),
         new Question(R.string.question_mideast, false),
         new Question(R.string.question_africa, false),
         new Question(R.string.question_americas, true),
@@ -34,14 +38,26 @@ public class QuizActivity extends AppCompatActivity {
 
     //Add an index for which question we are on.
     private int mCurrentIndex = 0;
+    private static final String KEY_INDEX = "index";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        //Log out that the onCreate method was fired.
+        Log.d(TAG, "onCreate(Bundle) called");
+
         //Use findViewById to get a reference to the textview layout.
         mQuestionTextview = (TextView) findViewById(R.id.question_text_view);
+
+        //Check the Bundle to see if it is null. ifit isnot
+        //we will fetch ou the mCurrentIndex from it using hte
+        //same constant KEY_INDEX that we used to put the
+        //value in the bundle
+        if (savedInstanceState != null){
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,mCurrentIndex);
+        }
 
         //Use the currentIndex to get the questionin the array at that
         //index, and also call the getTextResId method (Property) to get
@@ -50,6 +66,8 @@ public class QuizActivity extends AppCompatActivity {
         //Set the text for the question. Using the integer resource id
         //that was fetched out from the array of questions.
         mQuestionTextview.setText(question);
+
+
 
         //This uses the magical method findViewById to get a
         //layout resource from the layout file. We send in a
@@ -100,6 +118,8 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     //A method to check whether the answer is correct or not
@@ -113,7 +133,7 @@ public class QuizActivity extends AppCompatActivity {
 
         //If the user's press equals the questions answer
         if (userPressedTrue == answerIsTrue){
-            //Set the message to the coreect message
+            //Set the message to the correct message
             messageResId = R.string.correct_toast;
         }else {
             //Else the inicorrect message
@@ -123,6 +143,53 @@ public class QuizActivity extends AppCompatActivity {
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
     }
 
+    //This method is called right before onPause is called.
+    //This is where you should use the passed in Bundle to save
+    //the state of the activity.  The Bundle has methods on it
+    //to put values in a key=> value type of way
+    //We are using putInt to store the mCurrentIndex in the bundle
+    //under a key of KEY_INDEX. KEY_INDEX is really a const declared
+    //at the top of this class.
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "OnSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+    }
+
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause() Called");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart() Called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop() Called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy() Called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume() Called");
+    }
+
+    //We don't need these
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
