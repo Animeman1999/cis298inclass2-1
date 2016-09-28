@@ -6,11 +6,29 @@ package edu.kvcc.cis298.cis298inclass1;
 public class Question {
 
     private int mTextResId;
-    private boolean mAnswerTrue;
+    private int mCorrectAnswerResId;
+    private int[] mChoiceResIds;
 
-    public Question(int textResId, boolean answerTrue){
+    public Question(int textResId, int correctAnswerRedId, int [] choiceResIds){
         mTextResId = textResId;
-        mAnswerTrue = answerTrue;
+        mCorrectAnswerResId = correctAnswerRedId;
+        mChoiceResIds = choiceResIds;
+    }
+
+    public int getCorrectAnswerResId() {
+        return mCorrectAnswerResId;
+    }
+
+    public void setCorrectAnswerResId(int correctAnswerResId) {
+        mCorrectAnswerResId = correctAnswerResId;
+    }
+
+    public int[] getChoiceResIds() {
+        return mChoiceResIds;
+    }
+
+    public void setChoiceResIds(int[] choiceResIds) {
+        mChoiceResIds = choiceResIds;
     }
 
     public int getTextResId() {
@@ -21,11 +39,5 @@ public class Question {
         mTextResId = textResId;
     }
 
-    public boolean isAnswerTrue() {
-        return mAnswerTrue;
-    }
 
-    public void setAnswerTrue(boolean answerTrue) {
-        mAnswerTrue = answerTrue;
-    }
 }

@@ -1,37 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="24dp" />
+        android:padding="24dp"/>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/multiple_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/multiple_choice_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/question_1_choice_1"/>
+
+            <RadioButton
+                android:id="@+id/multiple_choice_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/question_1_choice_2"/>
+
+            <RadioButton
+                android:id="@+id/multiple_choice_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/question_1_choice_3"/>
+
+            <RadioButton
+                android:id="@+id/multiple_choice_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/question_1_choice_4"/>
+        </RadioGroup>
+
+    <Button
+        android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="@string/submit_button"/>
 
-        <Button
-            android:id="@+id/true_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/true_button" />
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"/>
 
-        <Button
-            android:id="@+id/false_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/false_button" />
-
-    </LinearLayout>
-     <Button
-         android:id="@+id/next_button"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text= "@string/next_button"/>
 
 </LinearLayout>

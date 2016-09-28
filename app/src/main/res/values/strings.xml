@@ -10,6 +10,20 @@
     <string name="question_americas">The Amazon River is the longest river in the Americas.</string>
     <string name="question_asia">Lake Baikal is the world\'s oldest and deepest fresh water lake.</string>
 
+    <string name="question_1_multiple">Who was the first earthling to achieve ward driva and make first contact with the Vulcans</string>
+    <string name="question_1_choice_1">Johnathan Archer</string>
+    <string name="question_1_choice_2">James Kird</string>
+    <string name="question_1_choice_3">Zefram Cochrane</string>
+    <string name="question_1_choice_4">Jean_lu Picard</string>
+
+    <string name="question_2_multiple">What do Klingons consider to be most important</string>
+    <string name="question_2_choice_1">Profit</string>
+    <string name="question_2_choice_2">Honor</string>
+    <string name="question_2_choice_3">Logic</string>
+    <string name="question_2_choice_4">Religion</string>
+
+    <string name="submit_button">Submit</string>
+
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
