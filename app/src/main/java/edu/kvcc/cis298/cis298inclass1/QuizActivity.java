@@ -56,14 +56,14 @@ public class QuizActivity extends AppCompatActivity {
     //integer and not a string. We want the 'pointer; to string, rather
     //than the string itself.
     private Question[] mQuestionBank = new Question[]{
-        new Question(R.string.question_1_multiple, R.string.question_1_choice_3,
+        new Question(R.string.question_1_multiple, R.id.multiple_choice_3,
             new int[]{
                     R.string.question_1_choice_1,
                     R.string.question_1_choice_2,
                     R.string.question_1_choice_3,
                     R.string.question_1_choice_4
             }),
-        new Question(R.string.question_2_multiple, R.string.question_2_choice_2,
+        new Question(R.string.question_2_multiple, R.id.multiple_choice_2,
                 new int[]{
                         R.string.question_2_choice_1,
                         R.string.question_2_choice_2,
@@ -110,7 +110,7 @@ public class QuizActivity extends AppCompatActivity {
                 //the id of the selected one in the variable selectedAnswerId.
                 int selectedAnswerId = mQuestionGroup.getCheckedRadioButtonId();
 
-                Toast.makeText(QuizActivity.this, "RadioButton checked = " + selectedAnswerId, Toast.LENGTH_LONG).show();
+               // Toast.makeText(QuizActivity.this, "RadioButton checked = " + selectedAnswerId, Toast.LENGTH_LONG).show();
                 //pass the id fo the selected radio buttoninto the
                 //checkAnswer method.  The checkAnswer handles Toasting
                 //Whether it is correct or not
@@ -147,7 +147,7 @@ public class QuizActivity extends AppCompatActivity {
         //to display in the toast message
         int messageResId = 0;
 
-        Toast.makeText(QuizActivity.this, "Correct Answer ID = " + correctAnswer, Toast.LENGTH_LONG).show();
+        //gitToast.makeText(QuizActivity.this, "Correct Answer ID = " + correctAnswer, Toast.LENGTH_LONG).show();
 
         //If the user's press equals the questions answer
         if (selectedRadioButton == correctAnswer){
