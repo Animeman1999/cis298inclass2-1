@@ -110,17 +110,15 @@ public class QuizActivity extends AppCompatActivity {
                 //the id of the selected one in the variable selectedAnswerId.
                 int selectedAnswerId = mQuestionGroup.getCheckedRadioButtonId();
 
+                Toast.makeText(QuizActivity.this, "RadioButton checked = " + selectedAnswerId, Toast.LENGTH_LONG).show();
                 //pass the id fo the selected radio buttoninto the
                 //checkAnswer method.  The checkAnswer handles Toasting
                 //Whether it is correct or not
-
                 checkAnswer(selectedAnswerId);
             }
         });
 
-
         updateQuestion();
-
 
         //The next button
         mNextButton = (Button)findViewById(R.id.next_button);
@@ -135,12 +133,7 @@ public class QuizActivity extends AppCompatActivity {
                 updateQuestion();
 
             }
-
-
         });
-
-
-
     }
 
     //A method to check whether the answer is correct or not
@@ -154,12 +147,14 @@ public class QuizActivity extends AppCompatActivity {
         //to display in the toast message
         int messageResId = 0;
 
+        Toast.makeText(QuizActivity.this, "Correct Answer ID = " + correctAnswer, Toast.LENGTH_LONG).show();
+
         //If the user's press equals the questions answer
         if (selectedRadioButton == correctAnswer){
             //Set the message to the correct message
             messageResId = R.string.correct_toast;
         }else {
-            //Else the inicorrect message
+            //Else the incorrect message
             messageResId = R.string.incorrect_toast;
         }
         //Make the toast using the assigned message
